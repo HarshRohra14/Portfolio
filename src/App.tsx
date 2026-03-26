@@ -166,7 +166,7 @@ const HeroSection = () => {
             width: '100vw',
             height: '100vh',
             transform: 'scale(1.5)',
-            opacity: 0.3,
+            opacity: 1,
           }}
           src="https://www.youtube.com/embed/HcRClxi1778?autoplay=1&mute=1&loop=1&playlist=HcRClxi1778&controls=0&showinfo=0&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1"
           title="Spider-Man Background"
