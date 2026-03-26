@@ -288,15 +288,15 @@ const ProjectsSection = ({ projects }: { projects: Project[] }) => {
       <div className="absolute inset-0 bg-gradient-to-b from-background via-red-950/5 to-background -z-10" />
       <div className="container mx-auto">
         <div className="mb-8 flex items-end justify-between md:mb-14 lg:mb-16">
-          <div className="flex flex-col gap-4">
+          <AnimatedContainer className="flex flex-col gap-4">
             <h2 className="text-3xl font-black md:text-4xl lg:text-5xl tracking-tight">
               <span className="bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent">Featured</span> Projects
             </h2>
             <p className="max-w-lg text-muted-foreground font-medium">
               Check out my recent missions 🎯
             </p>
-          </div>
-          <div className="hidden shrink-0 gap-2 md:flex">
+          </AnimatedContainer>
+          <AnimatedContainer delay={0.2} className="hidden shrink-0 gap-2 md:flex">
             <Button
               size="icon"
               variant="outline"
@@ -315,11 +315,11 @@ const ProjectsSection = ({ projects }: { projects: Project[] }) => {
             >
               <ArrowRight className="size-5" />
             </Button>
-          </div>
+          </AnimatedContainer>
         </div>
       </div>
 
-      <div className="w-full">
+      <AnimatedContainer delay={0.3} className="w-full">
         <Carousel
           setApi={setCarouselApi}
           opts={{
@@ -374,7 +374,7 @@ const ProjectsSection = ({ projects }: { projects: Project[] }) => {
             />
           ))}
         </div>
-      </div>
+      </AnimatedContainer>
     </section>
   );
 };
@@ -385,18 +385,21 @@ const ExperienceSection = ({ experiences }: { experiences: Experience[] }) => {
     <section className="py-32 px-4 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-red-950/5 to-background -z-10" />
       <div className="container mx-auto max-w-4xl">
-        <h2 className="text-3xl font-black md:text-4xl lg:text-5xl mb-12 tracking-tight">
-          <span className="bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent">Work</span> Experience
-        </h2>
+        <AnimatedContainer>
+          <h2 className="text-3xl font-black md:text-4xl lg:text-5xl mb-12 tracking-tight">
+            <span className="bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent">Work</span> Experience
+          </h2>
+        </AnimatedContainer>
 
         <div className="bg-background/80 backdrop-blur-sm rounded-lg border-2 border-red-600/20 shadow-lg shadow-red-500/10">
-          {experiences.map((experience) => (
-            <div key={experience.id} className="space-y-4 py-4 px-4">
-              <div className="flex items-center gap-3">
-                <div className="flex size-6 shrink-0 items-center justify-center">
-                  {experience.companyLogo ? (
-                    <img
-                      src={experience.companyLogo}
+          {experiences.map((experience, index) => (
+            <AnimatedContainer key={experience.id} delay={index * 0.1 + 0.2}>
+              <div className="space-y-4 py-4 px-4">
+                <div className="flex items-center gap-3">
+                  <div className="flex size-6 shrink-0 items-center justify-center">
+                    {experience.companyLogo ? (
+                      <img
+                        src={experience.companyLogo}
                       alt={experience.companyName}
                       className="rounded-full size-6"
                     />
@@ -470,6 +473,7 @@ const ExperienceSection = ({ experiences }: { experiences: Experience[] }) => {
                 ))}
               </div>
             </div>
+            </AnimatedContainer>
           ))}
         </div>
       </div>
@@ -491,7 +495,8 @@ const ContactSection = () => {
     <section className="py-32 px-4 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-red-950/5 to-background -z-10" />
       <div className="container mx-auto max-w-6xl">
-        <div className="border-2 border-red-600/20 rounded-lg overflow-hidden shadow-lg shadow-red-500/10 bg-background/80 backdrop-blur-sm">
+        <AnimatedContainer>
+          <div className="border-2 border-red-600/20 rounded-lg overflow-hidden shadow-lg shadow-red-500/10 bg-background/80 backdrop-blur-sm">
           <div className="px-6 py-12">
             <h2 className="text-3xl font-black md:text-4xl lg:text-5xl mb-4 tracking-tight">
               <span className="bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent">Get In</span> Touch
@@ -575,6 +580,7 @@ const ContactSection = () => {
             </div>
           </div>
         </div>
+        </AnimatedContainer>
       </div>
     </section>
   );
